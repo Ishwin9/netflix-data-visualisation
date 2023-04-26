@@ -33,7 +33,7 @@ library(lubridate)
 netflix_df <- read.csv("C:/Users/lenovo/Desktop/InfoViz/netflix_titles.csv")
 glimpse(netflix_df)
 ```
-![alt text]()
+![alt text](https://github.com/Ishwin9/netflix-data-visualisation/blob/main/1.jpg)
 
 For future usage, the date_added column is changed from String to Date format.
 
@@ -52,7 +52,7 @@ netflix_df[netflix_df == ''] <- NA
 #Count the number of missing values by counting the number of NAs
 sapply(netflix_df, function(x) sum(is.na(x)))
 ```
-![alt text]()
+![alt text](https://github.com/Ishwin9/netflix-data-visualisation/blob/main/2.jpg)
 
 ## **Data Visualizations**
 
@@ -91,7 +91,7 @@ ggplot(content_by_year, aes(x=year(date_added), fill=type)) +
         legend.title=element_blank())
         
 ```
-![alt text]()
+![alt text](https://github.com/Ishwin9/netflix-data-visualisation/blob/main/3.jpg)
 
 As can be seen from figure 1, the volume of content added to Netflix by each year has been consistently increasing till 2019 which is when most content was added. After 2019, there is a steady decline which may be attributed to covid and the reduction in production due to lock down restrictions. Another observation is that number of movies are almost double the quantity of TV shows. This shows that Netflix's content strategy is focused more on Movies than TV shows.
 
@@ -106,7 +106,7 @@ netflix_df |>
   select(country)
 ```
 
-![alt text]()
+![alt text](https://github.com/Ishwin9/netflix-data-visualisation/blob/main/4.jpg)
 
 Data is manipulated using the `seperate_rows` function from tidyverse which creates multiple rows for a column with multiple values i.e. for a movie with multiple countries there would be more than one row with a different country listed as a singular value in each.
 
@@ -122,7 +122,7 @@ separate_country_df |>
   select(title,country) |> 
   head(10)
 ```
-![alt text]()
+![alt text](https://github.com/Ishwin9/netflix-data-visualisation/blob/main/5.jpg)
 
 ```{r echo=TRUE}
 #Filtering the dataset to remove TV shows and converting the duration 
@@ -184,7 +184,7 @@ ggplot(data = movie_duration_plot) +
         )
 ```
 
-![alt text]()
+![alt text](https://github.com/Ishwin9/netflix-data-visualisation/blob/main/6.jpg)
 
 Figure 2 shows that North America, South America and most of Eurasia have movies with the average duration less than 97mins. Australia, South African Countries, some parts of Europe and East Asia make movies between 97mins to 107mins. South Asia, some parts of Africa, South East Asia and some parts of Europe make movies with an average duration greater than 107mins. These trends may have roots in the culture of the countries and history of their respective cinemas. However, this analysis may be limited if certain countries do not have enough movies on Netflix to be representative of their movie industry.
 
@@ -212,7 +212,7 @@ separate_genre_df <- separate_genre_df[!grepl("International TV Shows", separate
 top_4_genre <- head(separate_genre_df,4)
 top_4_genre
 ```
-![alt text]()
+![alt text](https://github.com/Ishwin9/netflix-data-visualisation/blob/main/7.jpg)
 
 The top 4 genres of movies are Drama, Comedy, Documentary and Action & Adventure.
 
@@ -227,7 +227,7 @@ country_count <- country_count[order(country_count$n, decreasing = TRUE),]
 top_5_countries <- head(country_count,5)
 top_5_countries
 ```
-![alt text]()
+![alt text](https://github.com/Ishwin9/netflix-data-visualisation/blob/main/8.jpg)
 
 The top 5 countries are US, India, UK, Canada and France.
 
@@ -268,7 +268,7 @@ separate_genre_country_df |>
   )
 ```
 
-![alt text]()
+![alt text](https://github.com/Ishwin9/netflix-data-visualisation/blob/main/9.jpg)
 
 In figure 3 it can be seen that US generates the most number of movies in all the top 4 genres. India is second in the Action & Adventure and Comedies category being a close second in Drama category. UK is the second most documentary producing country even though it only produces 25% of the documentaries US does.
 
@@ -308,7 +308,7 @@ ratings_df |> filter(rating %in% c("Kids","Teens","Adults")) |>
         legend.key.size = unit(0.5, 'cm'))
   
 ```
-![alt text]()
+![alt text](https://github.com/Ishwin9/netflix-data-visualisation/blob/main/10.jpg)
 
 The highest type of content on Netflix is for the adult viewership followed up by teens and then kids. Thus, currently the platform is focusing on content for adults.
 
